@@ -1,0 +1,16 @@
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.log
+*.tmp
+*.bak
+*.zip
+*.tar
+*.tar.gz
+.ipynb_checkpoints/
+.git/
+.vscode/
+.DS_Store
+Thumbs.db
+predict.before_*.py

@@ -1,0 +1,6 @@
+Morphology-Informed Deep Ensemble for Pulmonary Cavity Detection and Segmentation on Chest X-Rays
+TREAT-MMTB 2026 Challenge, Task 1 — Team Limitless
+Copyright 2026 Beodeul Kang, Wonjun Son, Minwoo Kang, Hyunyeol Lee (Kyungpook National University)
+
+Licensed under the Apache License, Version 2.0. The ConvNeXt-Tiny encoder is initialized from the
+timm checkpoint convnext_tiny.fb_in22k_ft_in1k (Apache License 2.0).

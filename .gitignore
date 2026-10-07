@@ -1,0 +1,20 @@
+# model weights are distributed separately (see README)
+weights/**/*.pt
+weights/**/*.pth
+# local data / outputs
+input/
+output/
+sample_input/
+runs/
+logs/
+# python
+__pycache__/
+*.pyc
+*.pyo
+.ipynb_checkpoints/
+# editor / os
+.vscode/
+.DS_Store
+Thumbs.db
+# backups
+*.bak*

@@ -1,0 +1,11 @@
+torch
+timm
+opencv-python
+albumentations
+numpy
+pandas
+scikit-learn
+tqdm
+pydicom
+nibabel
+SimpleITK

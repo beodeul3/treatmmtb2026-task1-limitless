@@ -1,0 +1,6 @@
+v18_hdome2ch_boostonly
+source: v12_4_ropad_lite_gate_boostonly
+architecture: unchanged
+input channel 1: original normalized CXR
+input channel 2: h-dome map
+env required: CAVITY_FORCE_HDOME2CH=1, CAVITY_HDOME_H=0.08

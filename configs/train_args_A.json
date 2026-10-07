@@ -1,0 +1,122 @@
+{
+  "model": "A",
+  "package": "pkgs/v12_4_ropad_lite_gate_boostonly/cavity_mtl_pkg",
+  "train_script": "pkgs/v12_4_ropad_lite_gate_boostonly/cavity_mtl_pkg/train_cavity_mtl.py",
+  "environment": {},
+  "train_args": {
+    "images_dir": ".\\Data\\train\\CXR",
+    "masks_dir": ".\\Data\\train\\CXR_label",
+    "out_dir": ".\\runs\\v12_4_ropad_lite_gate_boostonly_fold0",
+    "model": "convnext_tiny.fb_in22k_ft_in1k",
+    "in_chans": 2,
+    "residual_mode": "dark",
+    "residual_sigma": 5.0,
+    "img_size": 512,
+    "epochs": 80,
+    "batch_size": 4,
+    "num_workers": 4,
+    "n_splits": 5,
+    "seed": 42,
+    "lr": 0.0002,
+    "weight_decay": 0.0001,
+    "decoder_ch": 160,
+    "cls_dim": 256,
+    "dropout": 0.2,
+    "neg_seg_beta": 0.05,
+    "cls_pos_weight": 1.0,
+    "seg_warmup_epochs": 8,
+    "seg_weight_warmup": 2.0,
+    "cls_weight_warmup": 0.3,
+    "consistency_weight": 0.03,
+    "consistency_warmup_epochs": 30,
+    "hard_warmup_epochs": 10,
+    "hard_cache_momentum": 0.9,
+    "audit_every": 5,
+    "recall_constraint": 0.9,
+    "late_pos2_start": 0.85,
+    "mid_hard_ratio": 0.25,
+    "late_hard_ratio": 0.28,
+    "cls_tail_weight": 0.0,
+    "cls_margin_weight": 0.0,
+    "cls_margin": 1.0,
+    "cls_tail_topk_frac": 0.35,
+    "keep_largest": false,
+    "amp": false,
+    "ema": false,
+    "ema_decay": 0.999,
+    "no_pretrained": false,
+    "resume_ckpt": null
+  },
+  "model_config": {
+    "backbone": "convnext_tiny.fb_in22k_ft_in1k",
+    "pretrained": false,
+    "in_chans": 2,
+    "decoder_ch": 160,
+    "cls_dim": 256,
+    "dropout": 0.2,
+    "mask_to_cls_stopgrad": true
+  },
+  "preprocess_config": {
+    "in_chans": 2,
+    "residual_mode": "dark",
+    "residual_sigma": 5.0
+  },
+  "checkpoints": {
+    "fold0": {
+      "epoch": 36,
+      "score_tag": "official",
+      "objective": 0.66716,
+      "best_scores": {
+        "official": 0.66716,
+        "official_recall90": 0.629847,
+        "official_recall95": 0.579242,
+        "legacy": 0.550974
+      }
+    },
+    "fold1": {
+      "epoch": 25,
+      "score_tag": "official",
+      "objective": 0.706261,
+      "best_scores": {
+        "official": 0.706261,
+        "official_recall90": 0.658515,
+        "official_recall95": 0.64235,
+        "legacy": 0.569611
+      }
+    },
+    "fold2": {
+      "epoch": 21,
+      "score_tag": "official",
+      "objective": 0.7318,
+      "best_scores": {
+        "official": 0.7318,
+        "official_recall90": 0.618656,
+        "official_recall95": 0.607462,
+        "legacy": 0.58328
+      }
+    },
+    "fold3": {
+      "epoch": 35,
+      "score_tag": "official",
+      "objective": 0.713389,
+      "best_scores": {
+        "official": 0.713389,
+        "official_recall90": 0.67962,
+        "official_recall95": 0.672825,
+        "legacy": 0.606292
+      }
+    },
+    "fold4": {
+      "epoch": 10,
+      "score_tag": "official",
+      "objective": 0.676929,
+      "best_scores": {
+        "official": 0.676929,
+        "official_recall90": 0.609526,
+        "official_recall95": 0.516597,
+        "legacy": 0.547007
+      }
+    }
+  },
+  "note": "train_args are read from the released checkpoints (torch.load(path)['args']); 'fold' takes 0..4; images_dir/masks_dir/out_dir are the paths used on the development machine."
+}

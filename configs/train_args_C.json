@@ -1,0 +1,127 @@
+{
+  "model": "C",
+  "package": "pkgs/v19_dark_hbasin_sep/cavity_mtl_pkg",
+  "train_script": "pkgs/v19_dark_hbasin_sep/cavity_mtl_pkg/train_cavity_mtl.py",
+  "environment": {
+    "CAVITY_FORCE_V19_DARK_HBASIN_3CH": "1",
+    "CAVITY_V19_HBASIN_H": "0.08",
+    "CAVITY_RESIDUAL_SIGMA": "5.0",
+    "CAVITY_V19_FULL_DECOUPLE": "1"
+  },
+  "train_args": {
+    "images_dir": ".\\Data\\train\\CXR",
+    "masks_dir": ".\\Data\\train\\CXR_label",
+    "out_dir": ".\\runs\\v19_dark_hbasin_sep_fold0",
+    "model": "convnext_tiny.fb_in22k_ft_in1k",
+    "in_chans": 3,
+    "residual_mode": "dark",
+    "residual_sigma": 5.0,
+    "img_size": 512,
+    "epochs": 40,
+    "batch_size": 4,
+    "num_workers": 0,
+    "n_splits": 5,
+    "seed": 42,
+    "lr": 0.0002,
+    "weight_decay": 0.0001,
+    "decoder_ch": 160,
+    "cls_dim": 256,
+    "dropout": 0.2,
+    "neg_seg_beta": 0.05,
+    "cls_pos_weight": 1.0,
+    "seg_warmup_epochs": 8,
+    "seg_weight_warmup": 2.0,
+    "cls_weight_warmup": 0.3,
+    "consistency_weight": 0.03,
+    "consistency_warmup_epochs": 30,
+    "hard_warmup_epochs": 10,
+    "hard_cache_momentum": 0.9,
+    "audit_every": 5,
+    "recall_constraint": 0.9,
+    "late_pos2_start": 0.85,
+    "mid_hard_ratio": 0.25,
+    "late_hard_ratio": 0.28,
+    "cls_tail_weight": 0.0,
+    "cls_margin_weight": 0.0,
+    "cls_margin": 1.0,
+    "cls_tail_topk_frac": 0.35,
+    "keep_largest": false,
+    "amp": true,
+    "ema": false,
+    "ema_decay": 0.999,
+    "no_pretrained": false,
+    "resume_ckpt": null
+  },
+  "model_config": {
+    "backbone": "convnext_tiny.fb_in22k_ft_in1k",
+    "pretrained": false,
+    "in_chans": 3,
+    "decoder_ch": 160,
+    "cls_dim": 256,
+    "dropout": 0.2,
+    "mask_to_cls_stopgrad": true
+  },
+  "preprocess_config": {
+    "in_chans": 3,
+    "residual_mode": "dark",
+    "residual_sigma": 5.0
+  },
+  "checkpoints": {
+    "fold0": {
+      "epoch": 21,
+      "score_tag": "official",
+      "objective": 0.708356,
+      "best_scores": {
+        "official": 0.708356,
+        "official_recall90": 0.694926,
+        "official_recall95": 0.665806,
+        "legacy": 0.612304
+      }
+    },
+    "fold1": {
+      "epoch": 24,
+      "score_tag": "official",
+      "objective": 0.707418,
+      "best_scores": {
+        "official": 0.707418,
+        "official_recall90": 0.67168,
+        "official_recall95": 0.659095,
+        "legacy": 0.597565
+      }
+    },
+    "fold2": {
+      "epoch": 25,
+      "score_tag": "official",
+      "objective": 0.691661,
+      "best_scores": {
+        "official": 0.691661,
+        "official_recall90": 0.64375,
+        "official_recall95": 0.568337,
+        "legacy": 0.587962
+      }
+    },
+    "fold3": {
+      "epoch": 23,
+      "score_tag": "official",
+      "objective": 0.756198,
+      "best_scores": {
+        "official": 0.756198,
+        "official_recall90": 0.742273,
+        "official_recall95": 0.706227,
+        "legacy": 0.65458
+      }
+    },
+    "fold4": {
+      "epoch": 32,
+      "score_tag": "official",
+      "objective": 0.730027,
+      "best_scores": {
+        "official": 0.730027,
+        "official_recall90": 0.664806,
+        "official_recall95": 0.640808,
+        "legacy": 0.604142
+      }
+    }
+  },
+  "note": "train_args are read from the released checkpoints (torch.load(path)['args']); 'fold' takes 0..4; images_dir/masks_dir/out_dir are the paths used on the development machine."
+}
