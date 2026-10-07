@@ -19,7 +19,7 @@ scripts/train_{A,B,C}.ps1                              training launchers; run_d
 
 ## Weights
 
-15 checkpoints, 120.75 MB each (1.69 GB). Download: <!-- TODO: Hugging Face URL -->. Place under `weights/A`, `weights/B`, `weights/C`. Verify: `.\scripts\verify_sha256sums.ps1` or `sha256sum -c SHA256SUMS.txt`.
+15 checkpoints, 120.75 MB each (1.69 GB). Download: https://huggingface.co/beodeul/treatmmtb2026-task1-limitless (`weights/` folder). Place under `weights/A`, `weights/B`, `weights/C`. Verify: `.\scripts\verify_sha256sums.ps1` or `sha256sum -c SHA256SUMS.txt`.
 
 Checkpoint keys: `model` (state dict), `args`, `model_config`, `preprocess_config`, `thresholds`, `epoch`, `best_scores`, ... Only `model` is used at inference; `thresholds` are per-fold validation values, not the ensemble thresholds.
 
